@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aaspa Technologies – Spend Less. Tech More.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Amazon+Ember:wght@400;700&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  /* ── RESET & BASE ───────────────────────────── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy:   #0f1923;
+    --teal:   #00a8a8;
+    --teal2:  #007f7f;
+    --orange: #f39c00;
+    --orange2:#d48800;
+    --light:  #f3f4f4;
+    --white:  #ffffff;
+    --gray1:  #f8f8f8;
+    --gray2:  #e3e6e6;
+    --gray3:  #b2b2b2;
+    --text:   #0f1111;
+    --link:   #007185;
+    --red:    #cc0c39;
+    --badge:  #cc0c39;
+    --font:   'Nunito Sans', 'Arial', sans-serif;
+    --radius: 4px;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font); color: var(--text); background: var(--gray1); font-size: 14px; }
+  a { text-decoration: none; color: inherit; }
+  img { display: block; max-width: 100%; }
+  ul { list-style: none; }
+  button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+  /* ── TOP BAR ─────────────────────────────────── */
+  .topbar {
+    background: var(--navy);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    position: sticky; top: 0; z-index: 1000;
+    min-height: 56px;
+  }
+  .topbar-logo { display: flex; align-items: center; gap: 6px; }
+  .topbar-logo .logo-text { font-size: 22px; font-weight: 800; letter-spacing: -0.5px; }
+  .topbar-logo .logo-text span { color: var(--orange); }
+  .topbar-logo .logo-sub { font-size: 10px; color: var(--teal); font-weight: 600; letter-spacing: 0.5px; margin-top: 2px; }
+  .topbar-deliver {
+    display: flex; flex-direction: column; margin-left: 8px;
+    font-size: 11px; color: var(--gray3); white-space: nowrap;
+  }
+  .topbar-deliver strong { font-size: 13px; color: #fff; }
+  .topbar-search {
+    flex: 1; display: flex; border-radius: 4px; overflow: hidden;
+    max-width: 700px; min-width: 0;
+  }
+  .topbar-search select {
+    background: var(--gray2); border: none; padding: 0 8px;
+    font-size: 12px; cursor: pointer; flex-shrink: 0;
+    border-right: 1px solid #aaa;
+  }
+  .topbar-search input {
+    flex: 1; border: none; padding: 8px 12px; font-size: 14px;
+    outline: none; min-width: 0;
+  }
+  .topbar-search .search-btn {
+    background: var(--orange); padding: 0 14px; color: var(--navy);
+    font-size: 18px; display: flex; align-items: center;
+    transition: background 0.15s;
+  }
+  .topbar-search .search-btn:hover { background: var(--orange2); }
+  .topbar-actions { display: flex; gap: 4px; margin-left: auto; align-items: center; }
+  .topbar-actions a {
+    color: #fff; padding: 4px 8px; font-size: 12px;
+    border: 1px solid transparent; border-radius: 3px;
+    white-space: nowrap; transition: border-color 0.15s;
+    display: flex; flex-direction: column;
+  }
+  .topbar-actions a span:first-child { color: var(--gray3); }
+  .topbar-actions a span:last-child { font-weight: 700; font-size: 13px; }
+  .topbar-actions a:hover { border-color: #fff; }
+  .topbar-cart { display: flex; align-items: center; gap: 4px; font-size: 13px; font-weight: 700; }
+  .topbar-cart .cart-count { color: var(--orange); font-size: 18px; font-weight: 800; }
+
+  /* ── NAV BAR ─────────────────────────────────── */
+  .navbar {
+    background: var(--teal2);
+    display: flex; align-items: center; gap: 2px;
+    padding: 0 16px; overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .navbar::-webkit-scrollbar { display: none; }
+  .navbar a {
+    color: #fff; padding: 8px 12px; font-size: 13px;
+    white-space: nowrap; border: 1px solid transparent; border-radius: 3px;
+    transition: border-color 0.15s;
+  }
+  .navbar a:hover { border-color: #fff; }
+  .navbar .hamburger { display: flex; align-items: center; gap: 6px; font-weight: 700; }
+  .navbar .hamburger svg { width: 18px; height: 18px; fill: #fff; }
+
+  /* ── HERO CAROUSEL ───────────────────────────── */
+  .hero-wrap { position: relative; overflow: hidden; background: #e3e6e6; }
+  .hero-track { display: flex; transition: transform 0.5s ease; }
+  .hero-slide {
+    min-width: 100%; position: relative; overflow: hidden;
+    max-height: 420px;
+  }
+  .hero-slide img { width: 100%; height: 420px; object-fit: cover; object-position: center; }
+  .hero-slide-content {
+    position: absolute; top: 50%; left: 6%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.88);
+    padding: 20px 24px; border-radius: 4px;
+    max-width: 340px; backdrop-filter: blur(4px);
+  }
+  .hero-slide-content h2 { font-size: 20px; font-weight: 800; color: var(--navy); margin-bottom: 6px; }
+  .hero-slide-content p { font-size: 13px; color: #555; margin-bottom: 12px; line-height: 1.4; }
+  .btn-hero {
+    display: inline-block; padding: 9px 20px;
+    background: var(--orange); color: var(--navy);
+    font-weight: 700; font-size: 13px; border-radius: 3px;
+    transition: background 0.15s;
+  }
+  .btn-hero:hover { background: var(--orange2); }
+  .hero-arrow {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    background: rgba(255,255,255,0.7); border: none;
+    font-size: 28px; padding: 12px 8px; cursor: pointer;
+    border-radius: 2px; z-index: 10; color: var(--navy);
+    transition: background 0.15s;
+  }
+  .hero-arrow:hover { background: rgba(255,255,255,0.95); }
+  .hero-arrow.left { left: 0; border-radius: 0 4px 4px 0; }
+  .hero-arrow.right { right: 0; border-radius: 4px 0 0 4px; }
+  .hero-dots { position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); display: flex; gap: 6px; }
+  .hero-dots span {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: rgba(255,255,255,0.6); cursor: pointer; transition: background 0.2s;
+  }
+  .hero-dots span.active { background: var(--orange); }
+
+  /* ── SECTION COMMON ──────────────────────────── */
+  .section { background: var(--white); margin: 12px 16px; border-radius: 4px; padding: 20px; }
+  .section-title { font-size: 20px; font-weight: 800; margin-bottom: 14px; color: var(--navy); }
+  .section-link { color: var(--link); font-size: 13px; font-weight: 600; margin-left: auto; }
+  .section-header { display: flex; align-items: baseline; margin-bottom: 14px; }
+
+  /* ── SECTION 2 – CATEGORY GRID ───────────────── */
+  .cat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .cat-card { text-align: center; }
+  .cat-card img {
+    width: 100%; aspect-ratio: 1; object-fit: cover;
+    border-radius: 4px; margin-bottom: 8px;
+    transition: transform 0.2s;
+  }
+  .cat-card:hover img { transform: scale(1.03); }
+  .cat-card span { font-size: 13px; font-weight: 700; color: var(--navy); }
+
+  /* ── SECTION 3 – DEALS BANNER GRID ───────────── */
+  .deals-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .deal-card { border-radius: 4px; overflow: hidden; position: relative; }
+  .deal-card img { width: 100%; height: 160px; object-fit: cover; }
+  .deal-label {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.65));
+    color: #fff; padding: 10px 12px 8px;
+    font-size: 13px; font-weight: 700;
+  }
+  .deal-badge {
+    position: absolute; top: 8px; left: 8px;
+    background: var(--badge); color: #fff;
+    font-size: 11px; font-weight: 700; padding: 3px 7px;
+    border-radius: 3px;
+  }
+
+  /* ── SECTION 4 – PRODUCT SCROLL ─────────────── */
+  .prod-scroll-wrap { position: relative; }
+  .prod-scroll { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 6px; scroll-snap-type: x mandatory; scrollbar-width: none; }
+  .prod-scroll::-webkit-scrollbar { display: none; }
+  .prod-card {
+    min-width: 170px; max-width: 170px; scroll-snap-align: start;
+    background: var(--white); border: 1px solid var(--gray2);
+    border-radius: 4px; padding: 10px; flex-shrink: 0;
+    transition: box-shadow 0.2s;
+  }
+  .prod-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.13); }
+  .prod-card img { width: 100%; height: 130px; object-fit: contain; margin-bottom: 8px; }
+  .prod-card .prod-title { font-size: 12px; color: var(--text); margin-bottom: 4px; line-height: 1.35; font-weight: 600; }
+  .prod-card .prod-price { font-size: 16px; font-weight: 800; color: var(--navy); }
+  .prod-card .prod-price sup { font-size: 11px; }
+  .prod-card .prod-old { font-size: 11px; text-decoration: line-through; color: var(--gray3); }
+  .prod-card .prod-stars { font-size: 11px; color: var(--orange); margin-bottom: 2px; }
+  .prod-card .prod-reviews { font-size: 11px; color: var(--link); }
+  .prod-card .btn-add {
+    width: 100%; margin-top: 8px; padding: 6px;
+    background: var(--orange); border-radius: 20px;
+    font-size: 12px; font-weight: 700; color: var(--navy);
+    transition: background 0.15s;
+  }
+  .prod-card .btn-add:hover { background: var(--orange2); }
+
+  /* ── SECTION 5 – SIGN IN BANNER ──────────────── */
+  .signin-band {
+    background: linear-gradient(135deg, var(--navy) 0%, #1a2d3d 100%);
+    margin: 12px 16px; border-radius: 4px; padding: 24px;
+    display: flex; align-items: center; gap: 24px; color: #fff;
+  }
+  .signin-band .sb-text h3 { font-size: 18px; font-weight: 800; margin-bottom: 6px; }
+  .signin-band .sb-text p { font-size: 13px; color: var(--gray3); margin-bottom: 14px; }
+  .btn-signin {
+    display: inline-block; padding: 10px 28px;
+    background: var(--orange); color: var(--navy);
+    border-radius: 20px; font-weight: 700; font-size: 14px;
+    transition: background 0.15s;
+  }
+  .btn-signin:hover { background: var(--orange2); }
+  .signin-band .sb-img { width: 120px; flex-shrink: 0; }
+  .signin-band .sb-img img { border-radius: 8px; width: 100%; height: 100px; object-fit: cover; }
+
+  /* ── SECTION 6 – TOP PICKS / BESTSELLERS ─────── */
+  /* reuse prod-scroll */
+
+  /* ── SECTION 7 – CATEGORIES SHOWCASE ─────────── */
+  .showcase-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .showcase-card { border-radius: 4px; overflow: hidden; background: var(--gray1); }
+  .showcase-card img { width: 100%; height: 120px; object-fit: cover; }
+  .showcase-card .sc-body { padding: 10px; }
+  .showcase-card .sc-title { font-size: 14px; font-weight: 800; color: var(--navy); margin-bottom: 4px; }
+  .showcase-card .sc-link { font-size: 12px; color: var(--link); font-weight: 600; }
+
+  /* ── SECTION 8 – WHY CHOOSE US ───────────────── */
+  .why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .why-card { text-align: center; padding: 16px 8px; }
+  .why-card .why-icon {
+    width: 52px; height: 52px; border-radius: 50%;
+    background: var(--teal); display: flex; align-items: center;
+    justify-content: center; margin: 0 auto 10px;
+  }
+  .why-card .why-icon svg { width: 26px; height: 26px; fill: #fff; }
+  .why-card h4 { font-size: 13px; font-weight: 800; margin-bottom: 4px; }
+  .why-card p { font-size: 12px; color: #555; line-height: 1.4; }
+
+  /* ── SECTION 9 – BRANDS / PARTNERS ──────────── */
+  .brands-row { display: flex; gap: 16px; overflow-x: auto; padding-bottom: 4px; align-items: center; scrollbar-width: none; }
+  .brands-row::-webkit-scrollbar { display: none; }
+  .brand-chip {
+    flex-shrink: 0; border: 1px solid var(--gray2);
+    border-radius: 4px; padding: 10px 18px;
+    font-size: 13px; font-weight: 700; color: var(--navy);
+    background: var(--white); white-space: nowrap;
+  }
+
+  /* ── FOOTER ──────────────────────────────────── */
+  .footer-back { background: var(--navy); }
+  .footer-back-btn {
+    text-align: center; padding: 14px; color: #fff;
+    font-size: 13px; cursor: pointer; border-bottom: 1px solid #2a3a4a;
+    transition: background 0.15s;
+  }
+  .footer-back-btn:hover { background: #1e3040; }
+  .footer-cols {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+    padding: 28px 24px; border-bottom: 1px solid #2a3a4a;
+  }
+  .footer-col h4 { color: #fff; font-size: 14px; font-weight: 800; margin-bottom: 12px; }
+  .footer-col a { display: block; color: var(--gray3); font-size: 13px; margin-bottom: 7px; transition: color 0.15s; }
+  .footer-col a:hover { color: #fff; }
+  .footer-bottom {
+    text-align: center; padding: 16px;
+    color: var(--gray3); font-size: 12px;
+    display: flex; flex-direction: column; align-items: center; gap: 6px;
+  }
+  .footer-logo { font-size: 20px; font-weight: 800; color: #fff; margin-bottom: 4px; }
+  .footer-logo span { color: var(--orange); }
+
+  /* ── MOBILE BOTTOM NAV ───────────────────────── */
+  .mob-nav {
+    display: none;
+    position: fixed; bottom: 0; left: 0; right: 0;
+    background: var(--navy); border-top: 1px solid #2a3a4a;
+    z-index: 900;
+  }
+  .mob-nav-inner { display: flex; }
+  .mob-nav-item {
+    flex: 1; display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: 8px 4px; color: var(--gray3);
+    font-size: 10px; gap: 3px; transition: color 0.15s;
+  }
+  .mob-nav-item.active, .mob-nav-item:hover { color: var(--orange); }
+  .mob-nav-item svg { width: 22px; height: 22px; fill: currentColor; }
+
+  /* ── RESPONSIVE ──────────────────────────────── */
+  @media (max-width: 768px) {
+    .topbar { flex-wrap: wrap; gap: 6px; padding: 8px 10px; }
+    .topbar-logo .logo-sub { display: none; }
+    .topbar-deliver { display: none; }
+    .topbar-actions a span:first-child { display: none; }
+    .topbar-actions { gap: 2px; }
+    .topbar-search { width: 100%; order: 3; flex-basis: 100%; max-width: 100%; }
+
+    .section { margin: 8px 10px; padding: 14px; }
+    .section-title { font-size: 17px; }
+
+    .cat-grid { grid-template-columns: repeat(2, 1fr); }
+    .deals-grid { grid-template-columns: 1fr; }
+    .why-grid { grid-template-columns: repeat(2, 1fr); }
+    .showcase-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-cols { grid-template-columns: repeat(2, 1fr); }
+
+    .signin-band { flex-direction: column; gap: 14px; }
+    .signin-band .sb-img { display: none; }
+
+    .hero-slide img { height: 240px; }
+    .hero-slide-content { max-width: 200px; padding: 12px 14px; }
+    .hero-slide-content h2 { font-size: 15px; }
+    .hero-slide-content p { display: none; }
+
+    .mob-nav { display: block; }
+    body { padding-bottom: 60px; }
+  }
+  @media (max-width: 400px) {
+    .cat-grid { grid-template-columns: repeat(2, 1fr); }
+    .showcase-grid { grid-template-columns: 1fr 1fr; }
+    .prod-card { min-width: 145px; max-width: 145px; }
+    .footer-cols { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ①  TOP NAV BAR -->
+<header class="topbar">
+  <div class="topbar-logo">
+    <div>
+      <div class="logo-text">Aaspa<span>Tech</span></div>
+      <div class="logo-sub">Your ICT Partner</div>
+    </div>
+  </div>
+  <div class="topbar-deliver">
+    <span>Deliver to</span>
+    <strong>📍 Zimbabwe</strong>
+  </div>
+  <div class="topbar-search">
+    <select>
+      <option>All</option>
+      <option>Laptops</option>
+      <option>Desktops</option>
+      <option>Smart Boards</option>
+      <option>Tablets</option>
+      <option>CCTV</option>
+    </select>
+    <input type="text" placeholder="Search Aaspa Technologies…">
+    <button class="search-btn" aria-label="Search">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    </button>
+  </div>
+  <div class="topbar-actions">
+    <a href="#">
+      <span>Hello, Sign in</span>
+      <span>Account &amp; Lists ▾</span>
+    </a>
+    <a href="#">
+      <span>Returns</span>
+      <span>&amp; Orders</span>
+    </a>
+    <a href="#" class="topbar-cart">
+      <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+      <span class="cart-count">0</span>
+      Cart
+    </a>
+  </div>
+</header>
+
+<!-- NAV STRIP -->
+<nav class="navbar">
+  <a href="#" class="hamburger">
+    <svg viewBox="0 0 24 24"><rect y="4" width="24" height="2"/><rect y="11" width="24" height="2"/><rect y="18" width="24" height="2"/></svg>
+    All
+  </a>
+  <a href="#">Today's Deals</a>
+  <a href="#">Laptops</a>
+  <a href="#">Desktops</a>
+  <a href="#">Smart Boards</a>
+  <a href="#">Tablets &amp; iPads</a>
+  <a href="#">CCTV &amp; Alarms</a>
+  <a href="#">Accessories</a>
+  <a href="#">Customer Service</a>
+</nav>
+
+<!-- ②  HERO CAROUSEL -->
+<section class="hero-wrap" aria-label="Featured promotions">
+  <div class="hero-track" id="heroTrack">
+    <div class="hero-slide">
+      <img src="https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=1200&q=80" alt="Laptops on sale">
+      <div class="hero-slide-content">
+        <h2>Up to 40% off on Laptops</h2>
+        <p>Top-quality laptops — Dell, HP, Lenovo at unbeatable prices. Shop Season Deals.</p>
+        <a href="#laptops" class="btn-hero">Shop Laptops</a>
+      </div>
+    </div>
+    <div class="hero-slide">
+      <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80" alt="Interactive Smart Boards">
+      <div class="hero-slide-content">
+        <h2>Interactive Smart Boards</h2>
+        <p>Transform your classroom or boardroom with cutting-edge smart board technology.</p>
+        <a href="#" class="btn-hero">Explore Now</a>
+      </div>
+    </div>
+    <div class="hero-slide">
+      <img src="https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=1200&q=80" alt="All-in-one Desktops">
+      <div class="hero-slide-content">
+        <h2>All-in-One Desktops</h2>
+        <p>Dell Optiplex, HP ProDesk and more. Powerful performance for work &amp; home.</p>
+        <a href="#desktops" class="btn-hero">Shop Desktops</a>
+      </div>
+    </div>
+    <div class="hero-slide">
+      <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80" alt="CCTV & Security">
+      <div class="hero-slide-content">
+        <h2>CCTV &amp; Alarm Systems</h2>
+        <p>Secure your home or business with professional-grade surveillance systems.</p>
+        <a href="#" class="btn-hero">Shop Security</a>
+      </div>
+    </div>
+  </div>
+  <button class="hero-arrow left" id="heroPrev" aria-label="Previous slide">&#10094;</button>
+  <button class="hero-arrow right" id="heroNext" aria-label="Next slide">&#10095;</button>
+  <div class="hero-dots" id="heroDots">
+    <span class="active"></span><span></span><span></span><span></span>
+  </div>
+</section>
+
+<!-- ③  SECTION – SHOP BY CATEGORY -->
+<section class="section" id="categories">
+  <h2 class="section-title">Shop by Category</h2>
+  <div class="cat-grid">
+    <a href="#laptops" class="cat-card">
+      <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&q=80" alt="Laptops">
+      <span>Laptops</span>
+    </a>
+    <a href="#desktops" class="cat-card">
+      <img src="https://images.unsplash.com/photo-1547082299-de196ea013d6?w=400&q=80" alt="All-in-One Desktops">
+      <span>All-in-One Desktops</span>
+    </a>
+    <a href="#" class="cat-card">
+      <img src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=400&q=80" alt="Smart Boards">
+      <span>Smart Boards</span>
+    </a>
+    <a href="#" class="cat-card">
+      <img src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=400&q=80" alt="Tablets & iPads">
+      <span>Tablets &amp; iPads</span>
+    </a>
+    <a href="#" class="cat-card">
+      <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80" alt="CCTV & Alarms">
+      <span>CCTV &amp; Alarms</span>
+    </a>
+    <a href="#" class="cat-card">
+      <img src="https://images.unsplash.com/photo-1593640408182-31c228b99b55?w=400&q=80" alt="Desktop CPUs">
+      <span>Desktop CPUs &amp; Monitors</span>
+    </a>
+    <a href="#" class="cat-card">
+      <img src="https://images.unsplash.com/photo-1625842268584-8f3296236761?w=400&q=80" alt="Accessories">
+      <span>Laptop Accessories</span>
+    </a>
+    <a href="#" class="cat-card">
+      <img src="https://images.unsplash.com/photo-1509395176047-4a66953fd231?w=400&q=80" alt="Networking">
+      <span>Networking &amp; WiFi</span>
+    </a>
+  </div>
+</section>
+
+<!-- ④  SECTION – HOT DEALS BANNER -->
+<section class="section">
+  <div class="section-header">
+    <h2 class="section-title" style="margin-bottom:0">Today's Best Deals</h2>
+    <a href="#" class="section-link">See all deals</a>
+  </div>
+  <div class="deals-grid">
+    <div class="deal-card">
+      <img src="https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=600&q=80" alt="Laptop deal">
+      <div class="deal-badge">Save 25%</div>
+      <div class="deal-label">Dell Latitude i5 Laptops</div>
+    </div>
+    <div class="deal-card">
+      <img src="https://images.unsplash.com/photo-1547082299-de196ea013d6?w=600&q=80" alt="Desktop deal">
+      <div class="deal-badge">Best Price</div>
+      <div class="deal-label">Dell Optiplex Desktops</div>
+    </div>
+    <div class="deal-card">
+      <img src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=600&q=80" alt="Smart Board">
+      <div class="deal-badge">New</div>
+      <div class="deal-label">Interactive Smart Boards</div>
+    </div>
+    <div class="deal-card">
+      <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="CCTV">
+      <div class="deal-badge">Save 15%</div>
+      <div class="deal-label">CCTV Security Bundles</div>
+    </div>
+  </div>
+</section>
+
+<!-- ⑤  SECTION – LAPTOPS SCROLL -->
+<section class="section" id="laptops">
+  <div class="section-header">
+    <h2 class="section-title" style="margin-bottom:0">Laptops</h2>
+    <a href="#" class="section-link">See all</a>
+  </div>
+  <div class="prod-scroll">
+    <div class="prod-card">
+      <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=300&h=200&fit=crop&q=80" alt="Dell Latitude 5450 i5">
+      <div class="prod-stars">★★★★☆</div>
+      <div class="prod-reviews">128 reviews</div>
+      <div class="prod-title">Dell Latitude 5450 i5</div>
+      <div class="prod-old">US$250.00</div>
+      <div class="prod-price"><sup>US$</sup>200</div>
+      <button class="btn-add">Add to cart</button>
+    </div>
+    <div class="prod-card">
+      <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=300&h=200&fit=crop&q=80" alt="Dell Latitude 3189 x360">
+      <div class="prod-stars">★★★★☆</div>
+      <div class="prod-reviews">89 reviews</div>
+      <div class="prod-title">Dell Latitude 3189 x360 2-in-1</div>
+      <div class="prod-old">US$180.00</div>
+      <div class="prod-price"><sup>US$</sup>155</div>
+      <button class="btn-add">Add to cart</button>
+    </div>
+    <div class="prod-card">
+      <img src="https://images.unsplash.com/photo-1593642632632-1f14e04d8e58?w=300&h=200&fit=crop&q=80" alt="Dell Latitude 5310">
+      <div class="prod-stars">★★★★★</div>
+      <div class="prod-reviews">204 reviews</div>
+      <div class="prod-title">Dell Latitude 5310 i5</div>
+      <div class="prod-old">US$480.00</div>
+      <div class="prod-price"><sup>US$</sup>400</div>
+      <button class="btn-add">Add to cart</button>
+    </div>
+    <div class="prod-card">
+      <img src="https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=300&h=200&fit=crop&q=80" alt="HP EliteBook 840 G8">
+      <div class="prod-stars">★★★★★</div>
+      <div class="prod-reviews">312 reviews</div>
+      <div class="prod-title">HP EliteBook 840 G8</div>
+      <div class="prod-old">US$580.00</div>
+      <div class="prod-price"><sup>US$</sup>500</div>
+      <button class="btn-add">Add to cart</button>
+    </div>
+    <div class="prod-card">
+      <img src="https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=300&h=200&fit=crop&q=80" alt="Dell Latitude 7450 i7">
+      <div class="prod-stars">★★★★★</div>
+      <div class="prod-reviews">97 reviews</div>
+      <div class="prod-title">Dell Latitude 7450 i7</div>
+      <div class="prod-old">US$320.00</div>
+      <div class="prod-price"><sup>US$</sup>260</div>
+      <button class="btn-add">Add to cart</button>
+    </div>
+    <div class="prod-card">
+      <img src="https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=300&h=200&fit=crop&q=80" alt="HP EliteBook 745 G6">
+      <div class="prod-stars">★★★★☆</div>
+      <div class="prod-reviews">54 reviews</div>
+      <div class="prod-title">HP EliteBook 745 G6</div>
+      <div class="prod-old">US$400.00</div>
+      <div class="prod-price"><sup>US$</sup>350</div>
+      <button class="btn-add">Add to cart</button>
+    </div>
+    <div class="prod-card">
+      <img src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=300&h=200&fit=crop&q=80" alt="Dell 7450 i7 2GB Dedicated">
+      <div class="prod-stars">★★★★★</div>
+      <div class="prod-reviews">76 reviews</div>
+      <div class="prod-title">Dell 7450 i7 2GB Dedicated GPU</div>
+      <div class="prod-old">US$330.00</div>
+      <div class="prod-price"><sup>US$</sup>280</div>
+      <button class="btn-add">Add to cart</button>
+    </div>
+  </div>
+</section>
+
+<!-- ⑥  SIGN-IN BAND -->
+<div class="signin-band">
+  <div class="sb-text">
+    <h3>Sign in for the best experience</h3>
+    <p>Access exclusive deals, track orders, and get personalised recommendations.</p>
+    <a href="#" class="btn-signin">Sign in securely</a>
+    <br><br>
+    <a href="#" style="color:var(--teal);font-size:13px;">Create an account &rarr;</a>
+  </div>
+  <div class="sb-img">
+    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=300&q=80" alt="Tech team">
+  </div>
+</div>
+
+<!-- ⑦  SECTION – ALL-IN-ONE DESKTOPS -->
+<section class="section" id="desktops">
+  <div class="section-header">
+    <h2 class="section-title" style="margin-bottom:0">All-in-One Desktops &amp; CPUs</h2>
+    <a href="#" class="section-link">See all</a>
+  </div>
+  <div class="prod-scroll">
+    <div class="prod-card">
+      <img src="https://images.unsplash.com/photo-1547082299-de196ea013d6?w=300&h=200&fit=crop&q=80" alt="Dell Optiplex">
+      <div class="prod-stars">★★★★☆</div>
+      <div class="prod-reviews">167 reviews</div>
+      <div class="prod-title">Dell Optiplex 3070 i5 AIO</div>
+      <div class="prod-old">US$280.00</div>
+      <div class="prod-price"><sup>US$</sup>230</div>
+      <button class="btn-add">Add to cart</button>
+    </div>
+    <div class="prod-card">
+      <img src="https://images.unsplash.com/photo-1593640408182-31c228b99b55?w=300&h=200&fit=crop&q=80" alt="HP ProDesk">
+      <div class="prod-stars">★★★★★</div>
+      <div class="prod-reviews">211 reviews</div>
+      <div class="prod-title">HP ProDesk 600 G4 AIO</div>
+      <div class="prod-old">US$380.00</div>
+      <div class="prod-price"><sup>US$</sup>330</div>
+      <button class="btn-add">Add to cart</button>
+    </div>
+    <div class="prod-card">
+      <img src="https://images.unsplash.com/photo-1602837265264-f5a0aff3bfe6?w=300&h=200&fit=crop&q=80" alt="Dell Optiplex i7">
+      <div class="prod-stars">★★★★★</div>
+      <div class="prod-reviews">88 reviews</div>
+      <div class="prod-title">Dell Optiplex 7060 i7 AIO</div>
+      <div class="prod-old">US$320.00</div>
+      <div class="prod-price"><sup>US$</sup>260</div>
+      <button class="btn-add">Add to cart</button>
+    </div>
+    <div class="prod-card">
+      <img src="https://images.unsplash.com/photo-1625842268584-8f3296236761?w=300&h=200&fit=crop&q=80" alt="Monitor Bundle">
+      <div class="prod-stars">★★★★☆</div>
+      <div class="prod-reviews">45 reviews</div>
+      <div class="prod-title">24" FHD Monitor + CPU Bundle</div>
+      <div class="prod-old">US$290.00</div>
+      <div class="prod-price"><sup>US$</sup>240</div>
+      <button class="btn-add">Add to cart</button>
+    </div>
+    <div class="prod-card">
+      <img src="https://images.unsplash.com/photo-1564466809058-bf4114d55352?w=300&h=200&fit=crop&q=80" alt="Lenovo ThinkCentre">
+      <div class="prod-stars">★★★★☆</div>
+      <div class="prod-reviews">62 reviews</div>
+      <div class="prod-title">Lenovo ThinkCentre AIO i5</div>
+      <div class="prod-old">US$350.00</div>
+      <div class="prod-price"><sup>US$</sup>310</div>
+      <button class="btn-add">Add to cart</button>
+    </div>
+  </div>
+</section>
+
+<!-- ⑧  SECTION – WHY CHOOSE US -->
+<section class="section">
+  <h2 class="section-title">Why Choose Aaspa Technologies</h2>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-icon">
+        <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" stroke="#fff" stroke-width="2" fill="none"/></svg>
+      </div>
+      <h4>Quality Guaranteed</h4>
+      <p>All products sourced from verified, reputable manufacturers with warranties.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke="#fff" stroke-width="2" fill="none"/></svg>
+      </div>
+      <h4>Open 24 Hours</h4>
+      <p>We're available around the clock to answer your questions via WhatsApp.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">
+        <svg viewBox="0 0 24 24"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" stroke="#fff" stroke-width="2" fill="none"/></svg>
+      </div>
+      <h4>Nationwide Delivery</h4>
+      <p>Fast and reliable delivery across Zimbabwe — Harare, Bulawayo and beyond.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">
+        <svg viewBox="0 0 24 24"><path d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" stroke="#fff" stroke-width="2" fill="none"/></svg>
+      </div>
+      <h4>Expert Support</h4>
+      <p>Our ICT experts provide hands-on advice and after-sales technical support.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ⑨  SECTION – TOP PICKS / FEATURED -->
+<section class="section">
+  <div class="section-header">
+    <h2 class="section-title" style="margin-bottom:0">Top Picks for Zimbabwe</h2>
+    <a href="#" class="section-link">See all</a>
+  </div>
+  <div class="prod-scroll">
+    <div class="prod-card">
+      <img src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=300&h=200&fit=crop&q=80" alt="Smart Board">
+      <div class="prod-stars">★★★★★</div>
+      <div class="prod-reviews">43 reviews</div>
+      <div class="prod-title">65" Interactive Smart Board</div>
+      <div class="prod-price"><sup>US$</sup>1,200</div>
+      <button class="btn-add">Add to cart</button>
+    </div>
+    <div class="prod-card">
+      <img src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=300&h=200&fit=crop&q=80" alt="iPad">
+      <div class="prod-stars">★★★★☆</div>
+      <div class="prod-reviews">78 reviews</div>
+      <div class="prod-title">Apple iPad 10th Gen 64GB</div>
+      <div class="prod-price"><sup>US$</sup>420</div>
+      <button class="btn-add">Add to cart</button>
+    </div>
+    <div class="prod-card">
+      <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&h=200&fit=crop&q=80" alt="CCTV Kit">
+      <div class="prod-stars">★★★★★</div>
+      <div class="prod-reviews">59 reviews</div>
+      <div class="prod-title">8-Camera CCTV HD Kit</div>
+      <div class="prod-price"><sup>US$</sup>350</div>
+      <button class="btn-add">Add to cart</button>
+    </div>
+    <div class="prod-card">
+      <img src="https://images.unsplash.com/photo-1509395176047-4a66953fd231?w=300&h=200&fit=crop&q=80" alt="WiFi Router">
+      <div class="prod-stars">★★★★☆</div>
+      <div class="prod-reviews">31 reviews</div>
+      <div class="prod-title">Dual-Band WiFi 6 Router</div>
+      <div class="prod-price"><sup>US$</sup>85</div>
+      <button class="btn-add">Add to cart</button>
+    </div>
+    <div class="prod-card">
+      <img src="https://images.unsplash.com/photo-1625842268584-8f3296236761?w=300&h=200&fit=crop&q=80" alt="Keyboard Mouse Combo">
+      <div class="prod-stars">★★★★☆</div>
+      <div class="prod-reviews">22 reviews</div>
+      <div class="prod-title">Wireless Keyboard &amp; Mouse Combo</div>
+      <div class="prod-price"><sup>US$</sup>35</div>
+      <button class="btn-add">Add to cart</button>
+    </div>
+  </div>
+</section>
+
+<!-- ⑩  SECTION – BRANDS + SHOWCASE + FOOTER -->
+<section class="section">
+  <h2 class="section-title">Brands We Carry</h2>
+  <div class="brands-row">
+    <div class="brand-chip">Dell</div>
+    <div class="brand-chip">HP</div>
+    <div class="brand-chip">Lenovo</div>
+    <div class="brand-chip">Apple</div>
+    <div class="brand-chip">Samsung</div>
+    <div class="brand-chip">Hikvision</div>
+    <div class="brand-chip">Dahua</div>
+    <div class="brand-chip">Acer</div>
+    <div class="brand-chip">Asus</div>
+    <div class="brand-chip">Microsoft</div>
+  </div>
+</section>
+
+<section class="section">
+  <h2 class="section-title">Explore Our Services</h2>
+  <div class="showcase-grid">
+    <a href="#" class="showcase-card">
+      <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=400&q=80" alt="ICT Support">
+      <div class="sc-body">
+        <div class="sc-title">ICT Support &amp; Repairs</div>
+        <div class="sc-link">Learn more →</div>
+      </div>
+    </a>
+    <a href="#" class="showcase-card">
+      <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&q=80" alt="Smart Boards Install">
+      <div class="sc-body">
+        <div class="sc-title">Smart Board Installation</div>
+        <div class="sc-link">Learn more →</div>
+      </div>
+    </a>
+    <a href="#" class="showcase-card">
+      <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=400&q=80" alt="Business Packages">
+      <div class="sc-body">
+        <div class="sc-title">Business ICT Packages</div>
+        <div class="sc-link">Learn more →</div>
+      </div>
+    </a>
+    <a href="#" class="showcase-card">
+      <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80" alt="CCTV Setup">
+      <div class="sc-body">
+        <div class="sc-title">CCTV Setup &amp; Monitoring</div>
+        <div class="sc-link">Learn more →</div>
+      </div>
+    </a>
+    <a href="#" class="showcase-card">
+      <img src="https://images.unsplash.com/photo-1598965402089-897ce52e8355?w=400&q=80" alt="Data Recovery">
+      <div class="sc-body">
+        <div class="sc-title">Data Recovery Services</div>
+        <div class="sc-link">Learn more →</div>
+      </div>
+    </a>
+    <a href="#" class="showcase-card">
+      <img src="https://images.unsplash.com/photo-1509395176047-4a66953fd231?w=400&q=80" alt="Networking">
+      <div class="sc-body">
+        <div class="sc-title">Networking &amp; Cabling</div>
+        <div class="sc-link">Learn more →</div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer-back">
+  <div class="footer-back-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑ Back to top</div>
+  <div class="footer-cols">
+    <div class="footer-col">
+      <h4>Get to Know Us</h4>
+      <a href="#">About Aaspa Tech</a>
+      <a href="#">Careers</a>
+      <a href="#">Blog</a>
+      <a href="#">Press</a>
+    </div>
+    <div class="footer-col">
+      <h4>Shop With Us</h4>
+      <a href="#">All Products</a>
+      <a href="#">Today's Deals</a>
+      <a href="#">WhatsApp Catalogue</a>
+      <a href="#">Become a Reseller</a>
+    </div>
+    <div class="footer-col">
+      <h4>Payment &amp; Delivery</h4>
+      <a href="#">Accepted Methods</a>
+      <a href="#">Delivery Info</a>
+      <a href="#">Returns Policy</a>
+      <a href="#">Track My Order</a>
+    </div>
+    <div class="footer-col">
+      <h4>Let Us Help</h4>
+      <a href="#">WhatsApp: +263 78 767 1406</a>
+      <a href="#">Customer Service</a>
+      <a href="#">FAQs</a>
+      <a href="#">Contact Us</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-logo">Aaspa<span>Tech</span></div>
+    <p>© 2025 Aaspa Technologies Zimbabwe. All rights reserved.</p>
+    <p>Your premier destination for top-quality ICT consumables. 🔥</p>
+  </div>
+</footer>
+
+<!-- MOBILE BOTTOM NAV -->
+<nav class="mob-nav" aria-label="Mobile navigation">
+  <div class="mob-nav-inner">
+    <a href="#" class="mob-nav-item active">
+      <svg viewBox="0 0 24 24"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+      Home
+    </a>
+    <a href="#" class="mob-nav-item">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2" fill="none"/><line x1="21" y1="21" x2="16.65" y2="16.65" stroke="currentColor" stroke-width="2"/></svg>
+      Search
+    </a>
+    <a href="#categories" class="mob-nav-item">
+      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" stroke="currentColor" stroke-width="2" fill="none"/><rect x="14" y="3" width="7" height="7" stroke="currentColor" stroke-width="2" fill="none"/><rect x="3" y="14" width="7" height="7" stroke="currentColor" stroke-width="2" fill="none"/><rect x="14" y="14" width="7" height="7" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+      Categories
+    </a>
+    <a href="#" class="mob-nav-item">
+      <svg viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+      Saved
+    </a>
+    <a href="#" class="mob-nav-item">
+      <svg viewBox="0 0 24 24"><path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+      Cart
+    </a>
+  </div>
+</nav>
+
+<script>
+  // Hero carousel
+  const track = document.getElementById('heroTrack');
+  const dots = document.querySelectorAll('#heroDots span');
+  let cur = 0, total = 4, timer;
+
+  function goTo(i) {
+    cur = (i + total) % total;
+    track.style.transform = `translateX(-${cur * 100}%)`;
+    dots.forEach((d, idx) => d.classList.toggle('active', idx === cur));
+  }
+
+  document.getElementById('heroPrev').addEventListener('click', () => { goTo(cur - 1); resetTimer(); });
+  document.getElementById('heroNext').addEventListener('click', () => { goTo(cur + 1); resetTimer(); });
+  dots.forEach((d, i) => d.addEventListener('click', () => { goTo(i); resetTimer(); }));
+
+  function resetTimer() { clearInterval(timer); timer = setInterval(() => goTo(cur + 1), 5000); }
+  resetTimer();
+
+  // Touch swipe on hero
+  let startX = 0;
+  track.addEventListener('touchstart', e => startX = e.touches[0].clientX, { passive: true });
+  track.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - startX;
+    if (Math.abs(dx) > 40) { dx < 0 ? goTo(cur + 1) : goTo(cur - 1); resetTimer(); }
+  });
+</script>
+</body>
+</html>
