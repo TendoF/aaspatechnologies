@@ -120,14 +120,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .cat-card:hover img { transform: scale(1.03); }
 .cat-card span { font-size: 13px; font-weight: 700; color: var(--navy); }
 
-/* ── DEALS GRID ── */
-.deals-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-.deal-card { border-radius: 4px; overflow: hidden; position: relative; cursor: pointer; }
-.deal-card img { width: 100%; height: 160px; object-fit: cover; transition: transform 0.3s; }
-.deal-card:hover img { transform: scale(1.03); }
-.deal-label { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.7)); color: #fff; padding: 10px 12px 8px; font-size: 13px; font-weight: 700; }
-.deal-badge { position: absolute; top: 8px; left: 8px; background: var(--red); color: #fff; font-size: 11px; font-weight: 700; padding: 3px 7px; border-radius: 3px; }
-
 /* ── PRODUCT SCROLL ── */
 .prod-scroll { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 6px; scroll-snap-type: x mandatory; scrollbar-width: none; }
 .prod-scroll::-webkit-scrollbar { display: none; }
@@ -355,7 +347,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .section { margin: 8px 10px; padding: 14px; }
   .section-title { font-size: 17px; }
   .cat-grid { grid-template-columns: repeat(2, 1fr); }
-  .deals-grid { grid-template-columns: 1fr; }
   .why-grid { grid-template-columns: repeat(2, 1fr); }
   .showcase-grid { grid-template-columns: repeat(2, 1fr); }
   .testimonials-grid { grid-template-columns: 1fr; }
@@ -444,7 +435,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
     <svg viewBox="0 0 24 24" width="18" height="18" fill="#fff"><rect y="4" width="24" height="2"/><rect y="11" width="24" height="2"/><rect y="18" width="24" height="2"/></svg>
     All
   </a>
-  <a href="#deals" onclick="smoothScroll('#deals',event)">Today's Deals</a>
   <a href="#laptops" onclick="smoothScroll('#laptops',event)">Laptops</a>
   <a href="#desktops" onclick="smoothScroll('#desktops',event)">Desktops</a>
   <a href="#tablets" onclick="smoothScroll('#tablets',event)">Tablets &amp; iPads</a>
@@ -453,9 +443,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   <a href="#contact" onclick="smoothScroll('#contact',event)">Contact Us</a>
 </nav>
 
-
-
-<!-- ② HERO CAROUSEL — unchanged, Unsplash images kept -->
+<!-- HERO CAROUSEL -->
 <section class="hero-wrap">
   <div class="hero-track" id="heroTrack">
     <div class="hero-slide">
@@ -498,7 +486,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   </div>
 </section>
 
-<!-- ③ SHOP BY CATEGORY -->
+<!-- SHOP BY CATEGORY -->
 <section class="section" id="categories">
   <h2 class="section-title">Shop by Category</h2>
   <div class="cat-grid">
@@ -537,10 +525,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   </div>
 </section>
 
-
-
-
-<!-- ⑤ LAPTOPS -->
+<!-- LAPTOPS -->
 <section class="section" id="laptops">
   <div class="section-header">
     <h2 class="section-title" style="margin-bottom:0">Laptops</h2>
@@ -549,7 +534,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   <div class="prod-scroll" id="laptopsScroll"></div>
 </section>
 
-<!-- ⑥ PROMO BANNER -->
+<!-- PROMO BANNER -->
 <div class="promo-banner">
   <div>
     <h2>Need ICT Solutions for Your Business?</h2>
@@ -558,7 +543,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   <button class="btn-promo" onclick="openWA('I need ICT solutions for my business. Please send me more information.')">Get a Free Quote</button>
 </div>
 
-<!-- ⑦ SIGN-IN BAND -->
+<!-- SIGN-IN BAND -->
 <div class="signin-band">
   <div class="sb-text">
     <h3>Sign in for the best experience</h3>
@@ -572,7 +557,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   </div>
 </div>
 
-<!-- ⑧ DESKTOPS -->
+<!-- DESKTOPS -->
 <section class="section" id="desktops">
   <div class="section-header">
     <h2 class="section-title" style="margin-bottom:0">All-in-One Desktops &amp; CPUs</h2>
@@ -581,7 +566,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   <div class="prod-scroll" id="desktopsScroll"></div>
 </section>
 
-<!-- ⑨ TABLETS -->
+<!-- TABLETS -->
 <section class="section" id="tablets">
   <div class="section-header">
     <h2 class="section-title" style="margin-bottom:0">Tablets &amp; iPads</h2>
@@ -590,7 +575,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   <div class="prod-scroll" id="tabletsScroll"></div>
 </section>
 
-<!-- ⑩ ACCESSORIES & NETWORKING -->
+<!-- ACCESSORIES & NETWORKING -->
 <section class="section" id="accessories">
   <div class="section-header">
     <h2 class="section-title" style="margin-bottom:0">Accessories &amp; Networking</h2>
@@ -733,7 +718,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
         </div>
         <div class="contact-item-text">
           <strong>WhatsApp / Call</strong>
-          <a href="https://wa.me/263787671406" target="_blank">+263 78 767 1406</a>
+          <a href="https://wa.me/263787671406" target="_blank">+263 78 767 1406</a><br>
+          <a href="https://wa.me/263778304071" target="_blank">+263 77 830 4071</a>
         </div>
       </div>
       <div class="contact-item">
@@ -742,7 +728,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
         </div>
         <div class="contact-item-text">
           <strong>Email</strong>
-          <a href="ma40spartacus@gmail.com">ma40spartacus@gmail.com</a>
+          <a href="mailto:ma40spartacus@gmail.com">ma40spartacus@gmail.com</a>
         </div>
       </div>
       <div class="contact-item">
@@ -751,7 +737,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
         </div>
         <div class="contact-item-text">
           <strong>Location</strong>
-          <span>Harare, Zimbabwe</span>
+          <span>Pockets Building, Cnr Angwa &amp; Jason Moyo, Office 206, 2nd Floor, Harare (Opposite Stanley Mall)</span>
         </div>
       </div>
       <div class="contact-item">
@@ -801,10 +787,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
     </div>
     <div class="footer-col">
       <h4>Let Us Help</h4>
-      <a href="https://wa.me/263787671406" target="_blank">WhatsApp: +263 78 767 1406</a>
+      <a href="https://wa.me/263787671406" target="_blank">+263 78 767 1406</a>
+      <a href="https://wa.me/263778304071" target="_blank">+263 77 830 4071</a>
       <a href="mailto:ma40spartacus@gmail.com">ma40spartacus@gmail.com</a>
       <span onclick="openWA('I have a question and need customer service.')">Customer Service</span>
-      <span onclick="openWA('I have a question for Aaspa Technologies.')">FAQs</span>
     </div>
   </div>
   <div class="footer-bottom">
@@ -887,9 +873,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
     <div class="side-panel-item" onclick="closeSidePanel();smoothScroll('#desktops')"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg> All-in-One Desktops</div>
     <div class="side-panel-item" onclick="closeSidePanel();smoothScroll('#tablets')"><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="18" r="1"/></svg> Tablets &amp; iPads</div>
     <div class="side-panel-item" onclick="closeSidePanel();smoothScroll('#accessories')"><svg viewBox="0 0 24 24"><path d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/></svg> Accessories &amp; Networking</div>
-    <div class="side-panel-section">Deals &amp; Offers</div>
-    <div class="side-panel-item" onclick="closeSidePanel();smoothScroll('#deals')"><svg viewBox="0 0 24 24"><path d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/></svg> Today's Best Deals</div>
-    <div class="side-panel-item" onclick="closeSidePanel();openWA('Please send me your WhatsApp catalogue with all current products and prices.')"><svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg> WhatsApp Catalogue</div>
     <div class="side-panel-section">Services</div>
     <div class="side-panel-item" onclick="closeSidePanel();smoothScroll('#services')"><svg viewBox="0 0 24 24"><path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><circle cx="12" cy="12" r="3"/></svg> ICT Services</div>
     <div class="side-panel-item" onclick="closeSidePanel();smoothScroll('#contact')"><svg viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke="#00a8a8" stroke-width="2" fill="none"/></svg> Contact Us</div>
@@ -918,44 +901,186 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 <script>
 // ────────────────────────────────────────────────
-// PRODUCT DATABASE — all images replaced with real local files
+// PRODUCT DATABASE — PRICES CORRECTED FROM OFFICIAL ADS & WHATSAPP CATALOGUE
 // ────────────────────────────────────────────────
 const PRODUCTS = [
-  // LAPTOPS
-  { id:1,  name:'Dell Latitude 5450 i5',           cat:'Laptops',     price:200, oldPrice:250, stars:'★★★★☆', reviews:128, img:'Dell latitude 5450 i5.jpg',           desc:'Slim and reliable business laptop with Intel Core i5, 8GB RAM, 256GB SSD. 14" FHD anti-glare display. Ideal for work, school, and everyday computing.',       specs:[['Processor','Intel Core i5'],['RAM','8GB DDR4'],['Storage','256GB SSD'],['Display','14" FHD'],['OS','Windows 10 Pro']] },
-  { id:2,  name:'Dell Latitude 3189 x360 2-in-1',  cat:'Laptops',     price:155, oldPrice:180, stars:'★★★★☆', reviews:89,  img:'Dell latitude 3189 x360.webp',         desc:'Versatile 2-in-1 touchscreen laptop. Flip it, fold it, tablet mode ready. Intel Celeron, 4GB RAM, 64GB eMMC.',                                             specs:[['Processor','Intel Celeron'],['RAM','4GB'],['Storage','64GB eMMC'],['Display','11.6" Touch'],['OS','Windows 10']] },
-  { id:3,  name:'Dell Latitude 3310 i5',            cat:'Laptops',     price:185, oldPrice:220, stars:'★★★★☆', reviews:62,  img:'Dell latitude 3310.jpg',               desc:'Compact and powerful 13.3" laptop. Core i5, 8GB RAM, 256GB SSD. Great for students and professionals.',                                                     specs:[['Processor','Intel Core i5'],['RAM','8GB'],['Storage','256GB SSD'],['Display','13.3" FHD'],['OS','Windows 10']] },
-  { id:4,  name:'Dell Latitude 5310 i5',            cat:'Laptops',     price:400, oldPrice:480, stars:'★★★★★', reviews:204, img:'DELL LATITUDE 5310.png',               desc:'Premium 10th Gen business laptop. i5, 16GB RAM, 512GB SSD, 13.3" FHD. Fast, secure, and durable.',                                                         specs:[['Processor','Intel Core i5 10th Gen'],['RAM','16GB'],['Storage','512GB SSD'],['Display','13.3" FHD'],['OS','Windows 10 Pro']] },
-  { id:5,  name:'Dell Latitude 5450 i5 (Pro)',      cat:'Laptops',     price:220, oldPrice:270, stars:'★★★★☆', reviews:95,  img:'Dell latitude 5450 i5.png',            desc:'Upgraded 5450 with improved keyboard and extended battery. Core i5, 8GB RAM, 512GB SSD.',                                                                   specs:[['Processor','Intel Core i5'],['RAM','8GB DDR4'],['Storage','512GB SSD'],['Display','14" FHD'],['OS','Windows 11 Pro']] },
-  { id:6,  name:'Dell Latitude 7450 Core i5',       cat:'Laptops',     price:280, oldPrice:340, stars:'★★★★★', reviews:113, img:'Dell Latitude 7450 core i5.webp',      desc:'Premium ultra-thin 7000 series. Core i5, 16GB RAM, 512GB SSD. Outstanding build quality.',                                                                   specs:[['Processor','Intel Core i5'],['RAM','16GB LPDDR4'],['Storage','512GB NVMe'],['Display','14" FHD IPS'],['OS','Windows 11 Pro']] },
-  { id:7,  name:'Dell Latitude 7450 i7',            cat:'Laptops',     price:260, oldPrice:320, stars:'★★★★★', reviews:97,  img:'Dell latitude 7450 i7.jpg',            desc:'Top-tier Core i7 performance in a slim chassis. 16GB RAM, 512GB SSD. Best for heavy multitasking.',                                                          specs:[['Processor','Intel Core i7'],['RAM','16GB'],['Storage','512GB SSD'],['Display','14" FHD'],['OS','Windows 11 Pro']] },
-  { id:8,  name:'Dell 7450 i7 2GB Dedicated GPU',   cat:'Laptops',     price:280, oldPrice:330, stars:'★★★★★', reviews:76,  img:'7450 i7 2gb dedicated.jpg',            desc:'i7 with dedicated 2GB GPU. Great for design work, video editing, and light gaming.',                                                                           specs:[['Processor','Intel Core i7'],['RAM','16GB'],['Storage','512GB SSD'],['GPU','2GB Dedicated'],['Display','14" FHD']] },
-  { id:9,  name:'HP EliteBook 840 G3',              cat:'Laptops',     price:170, oldPrice:210, stars:'★★★★☆', reviews:55,  img:'Hp Elitebook 840 G3.webp',             desc:'Proven HP business laptop. i5, 8GB RAM, 256GB SSD. Trusted by professionals worldwide.',                                                                    specs:[['Processor','Intel Core i5 6th Gen'],['RAM','8GB'],['Storage','256GB SSD'],['Display','14" HD'],['OS','Windows 10']] },
-  { id:10, name:'HP EliteBook 840 G6 i7',           cat:'Laptops',     price:390, oldPrice:450, stars:'★★★★★', reviews:88,  img:'Hp Elitebook 840 G6 i17.webp',         desc:'HP EliteBook 840 G6 with Core i7. 16GB RAM, 512GB SSD. Enterprise-grade security and performance.',                                                         specs:[['Processor','Intel Core i7 8th Gen'],['RAM','16GB'],['Storage','512GB SSD'],['Display','14" FHD'],['OS','Windows 10 Pro']] },
-  { id:11, name:'HP EliteBook 840 G6',              cat:'Laptops',     price:350, oldPrice:410, stars:'★★★★☆', reviews:71,  img:'Hp Elitebook 840 G6.jpg',              desc:'HP EliteBook 840 G6 Core i5. 8GB RAM, 512GB SSD. Lightweight with premium security features.',                                                              specs:[['Processor','Intel Core i5 8th Gen'],['RAM','8GB'],['Storage','512GB SSD'],['Display','14" FHD'],['OS','Windows 10']] },
-  { id:12, name:'HP EliteBook 840 G8',              cat:'Laptops',     price:500, oldPrice:580, stars:'★★★★★', reviews:312, img:'Hp elitebook 840 G8.jpg',              desc:'Latest generation HP EliteBook. Intel 11th Gen Core i5/i7, 16GB RAM, 512GB SSD. Military-grade durability.',                                                 specs:[['Processor','Intel 11th Gen i5/i7'],['RAM','16GB DDR4'],['Storage','512GB NVMe'],['Display','14" FHD IPS'],['OS','Windows 11 Pro']] },
-  { id:13, name:'HP EliteBook 745 G6',              cat:'Laptops',     price:350, oldPrice:400, stars:'★★★★☆', reviews:54,  img:'Hp elite book 745 G6.jpg',             desc:'AMD Ryzen-powered EliteBook. 8GB RAM, 256GB SSD. Excellent battery and performance for the price.',                                                         specs:[['Processor','AMD Ryzen 5'],['RAM','8GB'],['Storage','256GB SSD'],['Display','14" FHD'],['OS','Windows 10']] },
-  { id:14, name:'HP ProBook 640 G5',                cat:'Laptops',     price:195, oldPrice:240, stars:'★★★☆☆', reviews:39,  img:'Hp Pro Book 640 G5.webp',              desc:'HP ProBook 640 G5. Core i5, 8GB RAM, 256GB SSD. Solid build, good performance at a great price.',                                                           specs:[['Processor','Intel Core i5 8th Gen'],['RAM','8GB'],['Storage','256GB SSD'],['Display','14" FHD'],['OS','Windows 10']] },
-  { id:15, name:'HP ProBook 11 G6',                 cat:'Laptops',     price:120, oldPrice:150, stars:'★★★☆☆', reviews:28,  img:'Hp probook 11 G6.webp',                desc:'Compact 11.6" ProBook. Celeron/Pentium, 4GB RAM, 64GB eMMC. Great for students on a budget.',                                                               specs:[['Processor','Intel Celeron/Pentium'],['RAM','4GB'],['Storage','64GB'],['Display','11.6" HD'],['OS','Windows 10']] },
+  // ── LAPTOPS ──
+  // Dell Latitude 5450 i5 → $200 (WhatsApp catalogue)
+  { id:1,  name:'Dell Latitude 5450 i5',           cat:'Laptops',  price:200, oldPrice:250, stars:'★★★★☆', reviews:128,
+    img:'Dell latitude 5450 i5.jpg',
+    desc:'Slim and reliable business laptop. Intel Core i5, 8GB RAM, 256GB SSD. 14" FHD anti-glare display. 1 Year Warranty. Free delivery + free laptop bag/mouse.',
+    specs:[['Processor','Intel Core i5'],['RAM','8GB DDR4'],['Storage','256GB SSD'],['Display','14" FHD'],['OS','Windows 10 Pro'],['Warranty','1 Year']] },
 
-  // DESKTOPS
-  { id:20, name:'Dell Optiplex 3070 i5 AIO',        cat:'Desktops',    price:230, oldPrice:280, stars:'★★★★☆', reviews:167, img:'Dell Optiplex 3070 AIO.webp',          desc:'Sleek all-in-one with 21.5" FHD screen. Core i5, 8GB RAM, 256GB SSD. Clean desk setup, no tower needed.',                                                   specs:[['Processor','Intel Core i5'],['RAM','8GB'],['Storage','256GB SSD'],['Display','21.5" FHD'],['OS','Windows 10']] },
-  { id:21, name:'Dell Optiplex Core i5 + 24" Monitor', cat:'Desktops', price:280, oldPrice:340, stars:'★★★★☆', reviews:82,  img:'Dell Optiplex core i5 with 24 inches monitor.webp', desc:'Dell Optiplex CPU bundle with a 24" FHD monitor. Core i5, 8GB RAM, 256GB SSD. Great office bundle.',                                                    specs:[['Processor','Intel Core i5'],['RAM','8GB'],['Storage','256GB SSD'],['Monitor','24" FHD'],['OS','Windows 10']] },
-  { id:22, name:'Dell Optiplex + 24" Monitor',       cat:'Desktops',    price:260, oldPrice:310, stars:'★★★★☆', reviews:67,  img:'Dell Optiplex with 24 inches monitor.webp', desc:'Dell Optiplex value bundle with 24" monitor. Core i5, 8GB RAM, 128GB SSD. Best value desktop setup.',                                                      specs:[['Processor','Intel Core i5'],['RAM','8GB'],['Storage','128GB SSD'],['Monitor','24" FHD'],['OS','Windows 10']] },
-  { id:23, name:'Dell Optiplex Mini Tower',          cat:'Desktops',    price:190, oldPrice:240, stars:'★★★★☆', reviews:103, img:'Dell Optiplex.webp',                   desc:'Compact mini tower. Core i5, 8GB RAM, 256GB SSD. Monitor not included. Perfect for office upgrades.',                                                       specs:[['Processor','Intel Core i5'],['RAM','8GB'],['Storage','256GB SSD'],['Type','Mini Tower'],['OS','Windows 10']] },
-  { id:24, name:'HP ProDesk 600 G4 AIO',             cat:'Desktops',    price:330, oldPrice:380, stars:'★★★★★', reviews:211, img:'HP ProDesk 600 G4.webp',               desc:'HP all-in-one powerhouse. Core i5 8th Gen, 16GB RAM, 512GB SSD, 23.8" FHD display. Professional grade.',                                                   specs:[['Processor','Intel Core i5 8th Gen'],['RAM','16GB'],['Storage','512GB SSD'],['Display','23.8" FHD'],['OS','Windows 10 Pro']] },
-  { id:25, name:'Dell Optiplex 7060 i7 AIO',         cat:'Desktops',    price:260, oldPrice:320, stars:'★★★★★', reviews:88,  img:'Dell 7060 i7.webp',                    desc:'High-performance i7 all-in-one. 16GB RAM, 512GB SSD. Ideal for demanding office and creative work.',                                                         specs:[['Processor','Intel Core i7'],['RAM','16GB'],['Storage','512GB SSD'],['Display','23.8" FHD'],['OS','Windows 10 Pro']] },
-  { id:26, name:'Lenovo ThinkCentre AIO i5',         cat:'Desktops',    price:310, oldPrice:350, stars:'★★★★☆', reviews:62,  img:'Lenovo ThinkCentre.webp',              desc:"Lenovo's reliable ThinkCentre all-in-one. Core i5, 8GB RAM, 256GB SSD. Clean design, solid build.",                                                        specs:[['Processor','Intel Core i5'],['RAM','8GB'],['Storage','256GB SSD'],['Display','21.5" FHD'],['OS','Windows 10']] },
+  // Dell Latitude 3189 x360 → $155 (WhatsApp catalogue)
+  { id:2,  name:'Dell Latitude 3189 X360 2-in-1',  cat:'Laptops',  price:155, oldPrice:180, stars:'★★★★☆', reviews:89,
+    img:'Dell latitude 3189 x360.webp',
+    desc:'Versatile 2-in-1 touchscreen laptop. Flip it, fold it — tablet mode ready. Intel Celeron, 4GB RAM, 64GB eMMC. 1 Year Warranty.',
+    specs:[['Processor','Intel Celeron'],['RAM','4GB'],['Storage','64GB eMMC'],['Display','11.6" Touch'],['OS','Windows 10'],['Warranty','1 Year']] },
 
-  // TABLETS
-  { id:30, name:'Apple iPad 10th Gen 64GB',          cat:'Tablets',     price:420, oldPrice:0,   stars:'★★★★☆', reviews:78,  img:'Apple iPad.jpg',                       desc:'Apple iPad 10th Generation. A14 Bionic chip, 10.9" Liquid Retina display, 64GB storage. WiFi model.',                                                       specs:[['Chip','Apple A14 Bionic'],['Storage','64GB'],['Display','10.9" Liquid Retina'],['Camera','12MP Wide'],['OS','iPadOS 17']] },
-  { id:31, name:'Samsung Galaxy Tab A8',             cat:'Tablets',     price:180, oldPrice:220, stars:'★★★★☆', reviews:44,  img:'Samsung Tab.webp',                     desc:'Samsung Galaxy Tab A8. 10.5" display, 3GB RAM, 32GB storage. Great for media, work, and school.',                                                           specs:[['Chip','Unisoc T618'],['RAM','3GB'],['Storage','32GB'],['Display','10.5" TFT'],['OS','Android 11']] },
+  // Dell Latitude 3310 i5 → $180 (WhatsApp catalogue)
+  { id:3,  name:'Dell Latitude 3310 i5',            cat:'Laptops',  price:180, oldPrice:220, stars:'★★★★☆', reviews:62,
+    img:'Dell latitude 3310.jpg',
+    desc:'Compact and powerful 13.3" laptop. Core i5, 8GB RAM, 256GB SSD. Great for students and professionals. 1 Year Warranty.',
+    specs:[['Processor','Intel Core i5'],['RAM','8GB'],['Storage','256GB SSD'],['Display','13.3" FHD'],['OS','Windows 10'],['Warranty','1 Year']] },
 
-  // ACCESSORIES
-  { id:40, name:'Wireless Keyboard & Mouse Combo',   cat:'Accessories', price:35,  oldPrice:0,   stars:'★★★★☆', reviews:22,  img:'Wireless Keyboard & Mouse Combo.webp', desc:'2.4GHz wireless keyboard and mouse combo. Compact, quiet, and reliable. Works with any laptop or desktop.', specs:[['Connection','2.4GHz Wireless'],['Battery','AA Batteries'],['Range','10m'],['OS','Windows/Mac/Linux'],['Color','Black']] },
-  { id:41, name:'Dual-Band WiFi 6 Router',           cat:'Accessories', price:85,  oldPrice:0,   stars:'★★★★☆', reviews:31,  img:'Dual-Band WiFi 6 Router.webp', desc:'WiFi 6 dual-band router. Up to 3000Mbps. MU-MIMO, 4 antennas. Perfect for home and office networks.',    specs:[['Standard','WiFi 6 (802.11ax)'],['Speed','Up to 3000Mbps'],['Bands','2.4GHz + 5GHz'],['Ports','4x Gigabit LAN'],['Range','High']] },
-  { id:42, name:'Laptop Bag 15.6"',                  cat:'Accessories', price:18,  oldPrice:25,  stars:'★★★★☆', reviews:19,  img:'Laptop Bagg 15.6.webp', desc:'Durable 15.6" laptop bag with padded compartment, multiple pockets, and water-resistant fabric.',          specs:[['Size','Fits up to 15.6"'],['Material','Water-resistant'],['Pockets','Multiple'],['Strap','Adjustable'],['Color','Black/Grey']] },
-  { id:43, name:'USB-C Hub 7-in-1',                  cat:'Accessories', price:28,  oldPrice:40,  stars:'★★★★★', reviews:47,  img:'USB-C Hub 7-in-1.webp', desc:'7-in-1 USB-C Hub. HDMI 4K, 3x USB-A, SD card, microSD, PD charging. Compatible with all USB-C laptops.',  specs:[['Ports','7'],['HDMI','4K@30Hz'],['USB-A','3x USB 3.0'],['Power Delivery','100W'],['Compatibility','USB-C Laptops']] },
+  // Dell Latitude 3380 Core i3 → $190 (WhatsApp catalogue — NEW product)
+  { id:4,  name:'Dell Latitude 3380 Core i3',       cat:'Laptops',  price:190, oldPrice:230, stars:'★★★☆☆', reviews:41,
+    img:'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&q=80',
+    desc:'Affordable Dell Latitude 3380 with Intel Core i3 processor. 8GB RAM, 256GB SSD, 13.3" display. Reliable everyday performance. 1 Year Warranty.',
+    specs:[['Processor','Intel Core i3'],['RAM','8GB'],['Storage','256GB SSD'],['Display','13.3" HD'],['OS','Windows 10'],['Warranty','1 Year']] },
+
+  // Dell Latitude 5310 i5 X360 → $400 (ad image p11)
+  { id:5,  name:'Dell Latitude 5310 i5 X360',       cat:'Laptops',  price:400, oldPrice:480, stars:'★★★★★', reviews:204,
+    img:'DELL LATITUDE 5310.png',
+    desc:'Premium 10th Gen 2-in-1. Core i5, X360 Touch Screen, 14" FHD, 8GB RAM, 256GB SSD. Backlight keyboard. Excellent battery. 1 Year Warranty. Free delivery + bag/mouse.',
+    specs:[['Processor','Intel Core i5 10th Gen'],['Type','X360 Touchscreen'],['RAM','8GB'],['Storage','256GB SSD'],['Display','14" FHD'],['Warranty','1 Year']] },
+
+  // Dell Latitude 7450 Core i5 → $220 (WhatsApp catalogue)
+  { id:6,  name:'Dell Latitude 7450 Core i5',       cat:'Laptops',  price:220, oldPrice:300, stars:'★★★★★', reviews:113,
+    img:'Dell Latitude 7450 core i5.webp',
+    desc:'Premium ultra-thin 7000 series. Core i5, 14" FHD, 256GB SSD, 8GB RAM. Outstanding build quality. 1 Year Warranty.',
+    specs:[['Processor','Intel Core i5'],['RAM','8GB'],['Storage','256GB SSD'],['Display','14" FHD'],['OS','Windows 11 Pro'],['Warranty','1 Year']] },
+
+  // Dell Latitude 7450 i7 → $260 (ad image p8 & WhatsApp catalogue)
+  { id:7,  name:'Dell Latitude 7450 i7',            cat:'Laptops',  price:260, oldPrice:320, stars:'★★★★★', reviews:97,
+    img:'Dell latitude 7450 i7.jpg',
+    desc:'Top-tier Core i7 in a slim chassis. 14" FHD, 8GB RAM, 256GB SSD. Backlight keyboard. Excellent battery. 1 Year Warranty. Free delivery + bag/mouse.',
+    specs:[['Processor','Intel Core i7'],['RAM','8GB DDR4'],['Storage','256GB SSD'],['Display','14" FHD'],['OS','Windows 11 Pro'],['Warranty','1 Year']] },
+
+  // Dell Latitude 7450 i7 2GB Dedicated → $280 (ad & WhatsApp catalogue)
+  { id:8,  name:'Dell Latitude 7450 i7 2GB GPU',    cat:'Laptops',  price:280, oldPrice:350, stars:'★★★★★', reviews:76,
+    img:'7450 i7 2gb dedicated.jpg',
+    desc:'i7 with 2GB dedicated graphics. 14" FHD, 8GB RAM, 256GB SSD. Great for design, video editing, and light gaming. 1 Year Warranty.',
+    specs:[['Processor','Intel Core i7'],['RAM','8GB'],['Storage','256GB SSD'],['GPU','2GB Dedicated'],['Display','14" FHD'],['Warranty','1 Year']] },
+
+  // Dell Latitude 7470 i7 Touchscreen → $300 (ad image p6 — NEW product)
+  { id:9,  name:'Dell Latitude 7470 i7 Touch',      cat:'Laptops',  price:300, oldPrice:380, stars:'★★★★★', reviews:63,
+    img:'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400&q=80',
+    desc:'Core i7 with Touch Screen. 14" FHD display, 8GB RAM, 256GB SSD. Backlight keyboard. Battery 4hrs+. 1 Year Warranty. Free delivery + bag/mouse.',
+    specs:[['Processor','Intel Core i7'],['Type','Touchscreen'],['RAM','8GB'],['Storage','256GB SSD'],['Display','14" FHD'],['Warranty','1 Year']] },
+
+  // HP EliteBook 840 G3 → $300 (ad image p55 — Touch, Core i5 6th Gen)
+  { id:10, name:'HP EliteBook 840 G3',              cat:'Laptops',  price:300, oldPrice:350, stars:'★★★★☆', reviews:55,
+    img:'Hp Elitebook 840 G3.webp',
+    desc:'HP EliteBook 840 G3 with Touch Screen. Core i5 6th Gen, 14" FHD, 8GB RAM, 256GB SSD. Backlight keyboard. Excellent battery. 1 Year Warranty.',
+    specs:[['Processor','Intel Core i5 6th Gen'],['Type','Touch Screen'],['RAM','8GB'],['Storage','256GB SSD'],['Display','14" FHD'],['Warranty','1 Year']] },
+
+  // HP EliteBook 840 G6 (i5/i7) → $330 i5 / $380 i7 (WhatsApp catalogue). Use i7 variant here.
+  { id:11, name:'HP EliteBook 840 G6 i7',           cat:'Laptops',  price:380, oldPrice:450, stars:'★★★★★', reviews:88,
+    img:'Hp Elitebook 840 G6 i17.webp',
+    desc:'HP EliteBook 840 G6 with Core i7 8th Gen. 14" FHD, 8GB RAM DDR4, 256GB SSD. Backlight keyboard. Fingerprint scanner. Excellent battery. 1 Year Warranty.',
+    specs:[['Processor','Intel Core i7 8th Gen'],['RAM','8GB DDR4'],['Storage','256GB SSD'],['Display','14" FHD'],['Security','Fingerprint Scanner'],['Warranty','1 Year']] },
+
+  // HP EliteBook 840 G6 i5 → $330 (WhatsApp catalogue)
+  { id:12, name:'HP EliteBook 840 G6',              cat:'Laptops',  price:330, oldPrice:400, stars:'★★★★☆', reviews:71,
+    img:'Hp Elitebook 840 G6.jpg',
+    desc:'HP EliteBook 840 G6 Core i5 8th Gen. 14" FHD, 8GB RAM DDR4, 256GB SSD. Backlight keyboard. Fingerprint scanner. Excellent battery. 1 Year Warranty.',
+    specs:[['Processor','Intel Core i5 8th Gen'],['RAM','8GB DDR4'],['Storage','256GB SSD'],['Display','14" FHD'],['Security','Fingerprint Scanner'],['Warranty','1 Year']] },
+
+  // HP EliteBook 840 G8 → $500 (ad image p4 — Core i5 11th Gen)
+  { id:13, name:'HP EliteBook 840 G8',              cat:'Laptops',  price:500, oldPrice:600, stars:'★★★★★', reviews:312,
+    img:'Hp elitebook 840 G8.jpg',
+    desc:'Latest generation HP EliteBook 840 G8. Core i5 11th Gen. 14" FHD, 8GB RAM, 256GB SSD. Battery 7hrs+. 1 Year Warranty. Free delivery + bag/mouse.',
+    specs:[['Processor','Intel Core i5 11th Gen'],['RAM','8GB DDR4'],['Storage','256GB SSD'],['Display','14" FHD'],['Battery','7 Hrs+'],['Warranty','1 Year']] },
+
+  // HP EliteBook 745 G6 → $350 (ad image p3 — AMD Ryzen 5 Pro 11th Gen, 2gb dedicated)
+  { id:14, name:'HP EliteBook 745 G6',              cat:'Laptops',  price:350, oldPrice:420, stars:'★★★★☆', reviews:54,
+    img:'Hp elite book 745 G6.jpg',
+    desc:'AMD Ryzen 5 Pro 11th Gen EliteBook. 14" FHD, 8GB RAM, 256GB SSD. 2GB dedicated graphics. Excellent battery. 1 Year Warranty. Free delivery + bag/mouse.',
+    specs:[['Processor','AMD Ryzen 5 Pro 11th Gen'],['RAM','8GB'],['Storage','256GB SSD'],['GPU','2GB Dedicated'],['Display','14" FHD'],['Warranty','1 Year']] },
+
+  // HP EliteBook 845 G8 → $400 (ad image p33 — AMD Ryzen 5 12th Gen, fingerprint, 2gb)
+  { id:15, name:'HP EliteBook 845 G8',              cat:'Laptops',  price:400, oldPrice:500, stars:'★★★★★', reviews:89,
+    img:'Hp elitebook 840 G8.jpg',
+    desc:'AMD Ryzen 5 12th Gen. 14" FHD, 8GB RAM, 256GB SSD. 2GB dedicated graphics. Fingerprint scanner. Excellent battery. 1 Year Warranty. Free delivery + bag/mouse.',
+    specs:[['Processor','AMD Ryzen 5 12th Gen'],['RAM','8GB'],['Storage','256GB SSD'],['GPU','2GB Dedicated'],['Security','Fingerprint Scanner'],['Warranty','1 Year']] },
+
+  // HP ProBook 640 G5 → $300 (ad image p2 — Core i5 8th Gen, backlight)
+  { id:16, name:'HP ProBook 640 G5',                cat:'Laptops',  price:300, oldPrice:350, stars:'★★★☆☆', reviews:39,
+    img:'Hp Pro Book 640 G5.webp',
+    desc:'HP ProBook 640 G5. Core i5 8th Gen, 14" FHD, 8GB RAM, 256GB SSD. Backlight keyboard. Excellent battery. 1 Year Warranty.',
+    specs:[['Processor','Intel Core i5 8th Gen'],['RAM','8GB'],['Storage','256GB SSD'],['Display','14" FHD'],['Keyboard','Backlight'],['Warranty','1 Year']] },
+
+  // HP ProBook 11 G6 X360 → $165 (ad image p7 — Dual Core 11th Gen, 12", 128GB SSD, 4GB)
+  { id:17, name:'HP ProBook 11 G6 X360',            cat:'Laptops',  price:165, oldPrice:200, stars:'★★★☆☆', reviews:28,
+    img:'Hp probook 11 G6.webp',
+    desc:'Touch Screen X360 2-in-1. Dual Core 11th Gen, 12" display, 4GB RAM, 128GB SSD. Excellent battery. 1 Year Warranty. Free delivery + bag/mouse.',
+    specs:[['Processor','Dual Core 11th Gen'],['Type','X360 Touchscreen'],['RAM','4GB'],['Storage','128GB SSD'],['Display','12" HD'],['Warranty','1 Year']] },
+
+  // ── DESKTOPS ──
+  // Dell Optiplex core i5 with 24 inches monitor → $330 (WhatsApp catalogue)
+  { id:20, name:'Dell Optiplex Core i5 + 24" Monitor', cat:'Desktops', price:330, oldPrice:400, stars:'★★★★☆', reviews:82,
+    img:'Dell Optiplex core i5 with 24 inches monitor.webp',
+    desc:'Dell Optiplex Core i5 bundle with 24" FHD monitor. 8GB RAM, 500GB HDD. WiFi, keyboard and mouse included. 1 Year Warranty.',
+    specs:[['Processor','Intel Core i5'],['RAM','8GB'],['Storage','500GB HDD'],['Monitor','24" FHD'],['Includes','WiFi, Keyboard, Mouse'],['Warranty','1 Year']] },
+
+  // Dell Optiplex (AIO) → $230 (WhatsApp catalogue)
+  { id:21, name:'Dell Optiplex All-in-One',          cat:'Desktops', price:230, oldPrice:280, stars:'★★★★☆', reviews:167,
+    img:'Dell Optiplex 3070 AIO.webp',
+    desc:'Dell Optiplex All-in-One. Core i5, 8GB RAM, 256GB SSD. Clean desk setup — no tower needed. 1 Year Warranty.',
+    specs:[['Processor','Intel Core i5'],['RAM','8GB'],['Storage','256GB SSD'],['Type','All-in-One'],['OS','Windows 10'],['Warranty','1 Year']] },
+
+  // Dell Optiplex with 24 inches monitor → $260 (WhatsApp catalogue)
+  { id:22, name:'Dell Optiplex + 24" Monitor',       cat:'Desktops', price:260, oldPrice:310, stars:'★★★★☆', reviews:67,
+    img:'Dell Optiplex with 24 inches monitor.webp',
+    desc:'Dell Optiplex value bundle with 24" monitor. Core i5, 8GB RAM, 256GB SSD. Best value desktop setup. 1 Year Warranty.',
+    specs:[['Processor','Intel Core i5'],['RAM','8GB'],['Storage','256GB SSD'],['Monitor','24" FHD'],['OS','Windows 10'],['Warranty','1 Year']] },
+
+  // Dell Optiplex Mini Tower (standalone) → keep at $190 — not listed in catalogue, use conservative price
+  { id:23, name:'Dell Optiplex Mini Tower',          cat:'Desktops', price:190, oldPrice:240, stars:'★★★★☆', reviews:103,
+    img:'Dell Optiplex.webp',
+    desc:'Compact Dell Optiplex mini tower. Core i5, 8GB RAM, 256GB SSD. Monitor not included. Perfect for office upgrades. 1 Year Warranty.',
+    specs:[['Processor','Intel Core i5'],['RAM','8GB'],['Storage','256GB SSD'],['Type','Mini Tower'],['OS','Windows 10'],['Warranty','1 Year']] },
+
+  // HP ProDesk 600 G4 AIO → keep at $330
+  { id:24, name:'HP ProDesk 600 G4 AIO',             cat:'Desktops', price:330, oldPrice:380, stars:'★★★★★', reviews:211,
+    img:'HP ProDesk 600 G4.webp',
+    desc:'HP all-in-one powerhouse. Core i5 8th Gen, 16GB RAM, 512GB SSD, 23.8" FHD display. Professional grade. 1 Year Warranty.',
+    specs:[['Processor','Intel Core i5 8th Gen'],['RAM','16GB'],['Storage','512GB SSD'],['Display','23.8" FHD'],['OS','Windows 10 Pro'],['Warranty','1 Year']] },
+
+  // Dell Optiplex 7060 i7 AIO → $260
+  { id:25, name:'Dell Optiplex 7060 i7 AIO',         cat:'Desktops', price:260, oldPrice:320, stars:'★★★★★', reviews:88,
+    img:'Dell 7060 i7.webp',
+    desc:'High-performance i7 all-in-one. 16GB RAM, 512GB SSD. Ideal for demanding office and creative work. 1 Year Warranty.',
+    specs:[['Processor','Intel Core i7'],['RAM','16GB'],['Storage','512GB SSD'],['Display','23.8" FHD'],['OS','Windows 10 Pro'],['Warranty','1 Year']] },
+
+  // Lenovo ThinkCentre AIO
+  { id:26, name:'Lenovo ThinkCentre AIO i5',         cat:'Desktops', price:310, oldPrice:350, stars:'★★★★☆', reviews:62,
+    img:'Lenovo ThinkCentre.webp',
+    desc:"Lenovo's reliable ThinkCentre all-in-one. Core i5, 8GB RAM, 256GB SSD. Clean design, solid build. 1 Year Warranty.",
+    specs:[['Processor','Intel Core i5'],['RAM','8GB'],['Storage','256GB SSD'],['Display','21.5" FHD'],['OS','Windows 10'],['Warranty','1 Year']] },
+
+  // ── TABLETS ──
+  { id:30, name:'Apple iPad 10th Gen 64GB',          cat:'Tablets',  price:420, oldPrice:0,   stars:'★★★★☆', reviews:78,
+    img:'Apple iPad.jpg',
+    desc:'Apple iPad 10th Generation. A14 Bionic chip, 10.9" Liquid Retina display, 64GB storage. WiFi model.',
+    specs:[['Chip','Apple A14 Bionic'],['Storage','64GB'],['Display','10.9" Liquid Retina'],['Camera','12MP Wide'],['OS','iPadOS 17']] },
+
+  { id:31, name:'Samsung Galaxy Tab A8',             cat:'Tablets',  price:180, oldPrice:220, stars:'★★★★☆', reviews:44,
+    img:'Samsung Tab.webp',
+    desc:'Samsung Galaxy Tab A8. 10.5" display, 3GB RAM, 32GB storage. Great for media, work, and school.',
+    specs:[['Chip','Unisoc T618'],['RAM','3GB'],['Storage','32GB'],['Display','10.5" TFT'],['OS','Android 11']] },
+
+  // ── ACCESSORIES ──
+  { id:40, name:'Wireless Keyboard & Mouse Combo',   cat:'Accessories', price:35, oldPrice:0,  stars:'★★★★☆', reviews:22,
+    img:'Wireless Keyboard & Mouse Combo.webp',
+    desc:'2.4GHz wireless keyboard and mouse combo. Compact, quiet, and reliable. Works with any laptop or desktop.',
+    specs:[['Connection','2.4GHz Wireless'],['Battery','AA Batteries'],['Range','10m'],['OS','Windows/Mac/Linux'],['Color','Black']] },
+
+  { id:41, name:'Dual-Band WiFi 6 Router',           cat:'Accessories', price:85, oldPrice:0,  stars:'★★★★☆', reviews:31,
+    img:'Dual-Band WiFi 6 Router.webp',
+    desc:'WiFi 6 dual-band router. Up to 3000Mbps. MU-MIMO, 4 antennas. Perfect for home and office networks.',
+    specs:[['Standard','WiFi 6 (802.11ax)'],['Speed','Up to 3000Mbps'],['Bands','2.4GHz + 5GHz'],['Ports','4x Gigabit LAN'],['Range','High']] },
+
+  { id:42, name:'Laptop Bag 15.6"',                  cat:'Accessories', price:18, oldPrice:25, stars:'★★★★☆', reviews:19,
+    img:'Laptop Bagg 15.6.webp',
+    desc:'Durable 15.6" laptop bag with padded compartment, multiple pockets, and water-resistant fabric.',
+    specs:[['Size','Fits up to 15.6"'],['Material','Water-resistant'],['Pockets','Multiple'],['Strap','Adjustable'],['Color','Black/Grey']] },
+
+  { id:43, name:'USB-C Hub 7-in-1',                  cat:'Accessories', price:28, oldPrice:40, stars:'★★★★★', reviews:47,
+    img:'USB-C Hub 7-in-1.webp',
+    desc:'7-in-1 USB-C Hub. HDMI 4K, 3x USB-A, SD card, microSD, PD charging. Compatible with all USB-C laptops.',
+    specs:[['Ports','7'],['HDMI','4K@30Hz'],['USB-A','3x USB 3.0'],['Power Delivery','100W'],['Compatibility','USB-C Laptops']] },
 ];
 
 // Cart state
@@ -966,11 +1091,11 @@ let cart = [];
 // ────────────────────────────────────────────────
 function renderProductCard(p) {
   return '<div class="prod-card" onclick="openProductById(' + p.id + ')">' +
-    '<img src="' + p.img + '" alt="' + p.name + '" loading="lazy">' +
+    '<img src="' + p.img + '" alt="' + p.name + '" loading="lazy" onerror="this.src=\'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&q=80\'">' +
     '<div class="prod-stars">' + p.stars + '</div>' +
     '<div class="prod-reviews">' + p.reviews + ' reviews</div>' +
     '<div class="prod-title">' + p.name + '</div>' +
-    (p.oldPrice ? '<div class="prod-old">US$' + p.oldPrice.toFixed(2) + '</div>' : '') +
+    (p.oldPrice ? '<div class="prod-old">Was: US$' + p.oldPrice.toFixed(0) + '</div>' : '') +
     '<div class="prod-price"><sup>US$</sup>' + p.price.toLocaleString() + '</div>' +
     '<button class="btn-add" onclick="event.stopPropagation();addToCart(' + p.id + ')">Add to cart</button>' +
     '</div>';
@@ -994,11 +1119,15 @@ function populateSections() {
 }
 
 function renderSpecCards() {
-  // Featured: Dell 5450 i5, Dell 7450 i7 GPU, HP 840 G8
-  const featured = [PRODUCTS.find(p=>p.id===1), PRODUCTS.find(p=>p.id===8), PRODUCTS.find(p=>p.id===12)];
+  // Featured comparisons: Dell 5450 i5 ($200), Dell 7450 i7 ($260), HP 840 G8 ($500)
+  const featured = [
+    PRODUCTS.find(p=>p.id===1),
+    PRODUCTS.find(p=>p.id===7),
+    PRODUCTS.find(p=>p.id===13)
+  ];
   document.getElementById('specCards').innerHTML = featured.map(p => `
     <div class="spec-card">
-      <img src="${p.img}" alt="${p.name}" class="spec-img">
+      <img src="${p.img}" alt="${p.name}" class="spec-img" onerror="this.src='https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&q=80'">
       <h4>${p.name}</h4>
       <div>
         ${p.specs.slice(0,4).map(s => `<div class="spec-row"><span>${s[0]}</span><span>${s[1]}</span></div>`).join('')}
@@ -1006,7 +1135,7 @@ function renderSpecCards() {
       <div class="spec-price"><sup>US$</sup>${p.price.toLocaleString()}</div>
       <div class="spec-btns">
         <button class="spec-btn-cart" onclick="addToCart(${p.id})">Add to Cart</button>
-        <button class="spec-btn-wa" onclick="openProductById(${p.id})">Order</button>
+        <button class="spec-btn-wa" onclick="openWA('I would like to order: ${p.name} at US$${p.price}. Please confirm availability.')">Order</button>
       </div>
     </div>
   `).join('');
@@ -1021,7 +1150,7 @@ function addToCart(id) {
   const existing = cart.find(c => c.id === id);
   if (existing) { existing.qty++; } else { cart.push({ ...product, qty: 1 }); }
   updateCartCount();
-  showToast(`✅ ${product.name} added to cart!`);
+  showToast('✅ ' + product.name + ' added to cart!');
 }
 
 function updateCartCount() {
@@ -1046,13 +1175,13 @@ function renderCartDrawer() {
   const body   = document.getElementById('cartBody');
   const footer = document.getElementById('cartFooter');
   if (cart.length === 0) {
-    body.innerHTML = `<div class="cart-empty"><svg viewBox="0 0 24 24"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" stroke="#ccc" stroke-width="1.5" fill="none"/></svg><p style="font-size:15px;font-weight:700;margin-bottom:6px;color:#555">Your cart is empty</p><p style="font-size:13px">Add products to get started!</p></div>`;
+    body.innerHTML = '<div class="cart-empty"><svg viewBox="0 0 24 24"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" stroke="#ccc" stroke-width="1.5" fill="none"/></svg><p style="font-size:15px;font-weight:700;margin-bottom:6px;color:#555">Your cart is empty</p><p style="font-size:13px">Add products to get started!</p></div>';
     footer.style.display = 'none';
     return;
   }
   body.innerHTML = cart.map(item => `
     <div class="cart-item">
-      <img src="${item.img}" alt="${item.name}">
+      <img src="${item.img}" alt="${item.name}" onerror="this.src='https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&q=80'">
       <div class="cart-item-info">
         <div class="cart-item-name">${item.name}</div>
         <div class="cart-item-price">US$${(item.price * item.qty).toLocaleString()}</div>
@@ -1066,7 +1195,7 @@ function renderCartDrawer() {
     </div>
   `).join('');
   const total = cart.reduce((s, c) => s + c.price * c.qty, 0);
-  document.getElementById('cartTotal').textContent = `US$${total.toLocaleString()}`;
+  document.getElementById('cartTotal').textContent = 'US$' + total.toLocaleString();
   footer.style.display = 'block';
 }
 
@@ -1089,8 +1218,8 @@ function orderViaWhatsApp() {
   if (cart.length === 0) return;
   const total = cart.reduce((s, c) => s + c.price * c.qty, 0);
   let msg = 'Hello Aaspa Technologies! I would like to place the following order:\n\n';
-  cart.forEach(item => { msg += `• ${item.name} x${item.qty} — US$${(item.price * item.qty).toLocaleString()}\n`; });
-  msg += `\n*Total: US$${total.toLocaleString()}*\n\nPlease confirm availability and payment details. Thank you!`;
+  cart.forEach(item => { msg += '• ' + item.name + ' x' + item.qty + ' — US$' + (item.price * item.qty).toLocaleString() + '\n'; });
+  msg += '\n*Total: US$' + total.toLocaleString() + '*\n\nPlease confirm availability and payment details. Thank you!';
   openWA(msg);
 }
 
@@ -1101,16 +1230,16 @@ function openProductModal(p) {
   const priceStr = '<sup>US$</sup>' + p.price.toLocaleString();
   const specsHTML = p.specs && p.specs.length ? `
     <div class="modal-specs">
-      <table>${p.specs.map(s => `<tr><td>${s[0]}</td><td>${s[1]}</td></tr>`).join('')}</table>
+      <table>${p.specs.map(s => '<tr><td>' + s[0] + '</td><td>' + s[1] + '</td></tr>').join('')}</table>
     </div>` : '';
   document.getElementById('modalInner').innerHTML = `
     <div class="modal-grid">
-      <div class="modal-img-wrap"><img src="${p.img}" alt="${p.name}"></div>
+      <div class="modal-img-wrap"><img src="${p.img}" alt="${p.name}" onerror="this.src='https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&q=80'"></div>
       <div class="modal-info">
         <h2>${p.name}</h2>
         <div class="modal-stars">${p.stars}</div>
         <div class="modal-reviews">${p.reviews} customer reviews</div>
-        ${p.oldPrice ? `<div class="modal-price-old">Was: US$${p.oldPrice.toLocaleString()}</div>` : ''}
+        ${p.oldPrice ? '<div class="modal-price-old">Was: US$' + p.oldPrice.toLocaleString() + '</div>' : ''}
         <div class="modal-price">${priceStr}</div>
         <div class="modal-desc">${p.desc}</div>
         ${specsHTML}
@@ -1158,11 +1287,11 @@ searchInput.addEventListener('input', function() {
     return matchQ && matchCat;
   });
   if (results.length === 0) {
-    searchDropdown.innerHTML = `<div class="search-no-results">No products found for "<strong>${this.value}</strong>"</div>`;
+    searchDropdown.innerHTML = '<div class="search-no-results">No products found for "<strong>' + this.value + '</strong>"</div>';
   } else {
     searchDropdown.innerHTML = results.slice(0, 8).map(p => `
       <div class="search-item" onclick="openProductById(${p.id});searchDropdown.classList.remove('visible')">
-        <img src="${p.img}" alt="${p.name}">
+        <img src="${p.img}" alt="${p.name}" onerror="this.src='https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&q=80'">
         <div class="search-item-info">
           <div class="si-name">${highlightMatch(p.name, q)}</div>
           <div class="si-cat">${p.cat}</div>
@@ -1219,7 +1348,7 @@ let cur = 0, total = 4, heroTimer;
 
 function goTo(i) {
   cur = (i + total) % total;
-  track.style.transform = `translateX(-${cur * 100}%)`;
+  track.style.transform = 'translateX(-' + (cur * 100) + '%)';
   dots.forEach((d, idx) => d.classList.toggle('active', idx === cur));
 }
 document.getElementById('heroPrev').addEventListener('click', () => { goTo(cur-1); resetTimer(); });
@@ -1287,7 +1416,7 @@ function subscribeNewsletter() {
   if (!email || !email.includes('@')) { showToast('Please enter a valid email address'); return; }
   showToast('🎉 Subscribed! Check your inbox for deals.');
   document.getElementById('newsletterEmail').value = '';
-  window.location.href = `mailto:ma40spartacus@gmail.com?subject=Newsletter Subscription&body=New subscriber: ${email}`;
+  window.location.href = 'mailto:ma40spartacus@gmail.com?subject=Newsletter Subscription&body=New subscriber: ' + email;
 }
 
 function sendContactEmail() {
@@ -1296,7 +1425,7 @@ function sendContactEmail() {
   const subject = document.getElementById('ctSubject').value.trim();
   const message = document.getElementById('ctMessage').value.trim();
   if (!name || !message) { showToast('Please fill in your name and message'); return; }
-  window.location.href = `mailto:ma40spartacus@gmail.com?subject=${encodeURIComponent(subject || 'Message from ' + name)}&body=${encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\n' + message)}`;
+  window.location.href = 'mailto:ma40spartacus@gmail.com?subject=' + encodeURIComponent(subject || 'Message from ' + name) + '&body=' + encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\n' + message);
   showToast('✅ Opening your email client to send the message!');
 }
 
