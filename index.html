@@ -426,7 +426,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
       <span>Hello, Sign in</span>
       <span>Account ▾</span>
     </a>
-    <a href="mailto:info@aaspatech.co.zw">
+    <a href="mailto:ma40spartacus@gmail.com">
       <span>Email</span>
       <span>Contact Us</span>
     </a>
@@ -694,7 +694,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 <section class="section" id="services">
   <h2 class="section-title">Explore Our Services</h2>
   <div class="showcase-grid">
-    <a href="mailto:info@aaspatech.co.zw" class="showcase-card">
+    <a href="mailto:ma40spartacus@gmail.com" class="showcase-card">
       <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=400&q=80" alt="ICT Support">
       <div class="sc-body"><div class="sc-title">ICT Support &amp; Repairs</div><div class="sc-link">Email us →</div></div>
     </a>
@@ -710,12 +710,12 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
       <img src="https://images.unsplash.com/photo-1598965402089-897ce52e8355?w=400&q=80" alt="Data Recovery">
       <div class="sc-body"><div class="sc-title">Data Recovery Services</div><div class="sc-link">WhatsApp us →</div></div>
     </div>
-    <a href="mailto:info@aaspatech.co.zw" class="showcase-card">
+    <a href="mailto:ma40spartacus@gmail.com" class="showcase-card">
       <img src="https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&q=80" alt="Software">
       <div class="sc-body"><div class="sc-title">Software Setup &amp; Licensing</div><div class="sc-link">Email us →</div></div>
     </a>
     <div class="showcase-card" onclick="openWA('I am interested in Virus Removal and PC Cleaning services.')">
-      <img src="https://images.unsplash.com/photo-1593642632632-1f14e04d8e58?w=400&q=80" alt="Virus Removal">
+      <img src="monitors.webp" alt="Virus Removal">
       <div class="sc-body"><div class="sc-title">Virus Removal &amp; PC Cleaning</div><div class="sc-link">WhatsApp us →</div></div>
     </div>
   </div>
@@ -742,7 +742,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
         </div>
         <div class="contact-item-text">
           <strong>Email</strong>
-          <a href="mailto:info@aaspatech.co.zw">info@aaspatech.co.zw</a>
+          <a href="ma40spartacus@gmail.com">ma40spartacus@gmail.com</a>
         </div>
       </div>
       <div class="contact-item">
@@ -781,8 +781,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   <div class="footer-cols">
     <div class="footer-col">
       <h4>Get to Know Us</h4>
-      <a href="mailto:info@aaspatech.co.zw">About Aaspa Tech</a>
-      <a href="mailto:info@aaspatech.co.zw">Careers</a>
+      <a href="mailto:ma40spartacus@gmail.com">About Aaspa Tech</a>
+      <a href="mailto:ma40spartacus@gmail.com">Careers</a>
       <span onclick="openWA('I would like to know more about Aaspa Technologies.')">Our Story</span>
     </div>
     <div class="footer-col">
@@ -802,7 +802,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
     <div class="footer-col">
       <h4>Let Us Help</h4>
       <a href="https://wa.me/263787671406" target="_blank">WhatsApp: +263 78 767 1406</a>
-      <a href="mailto:info@aaspatech.co.zw">info@aaspatech.co.zw</a>
+      <a href="mailto:ma40spartacus@gmail.com">ma40spartacus@gmail.com</a>
       <span onclick="openWA('I have a question and need customer service.')">Customer Service</span>
       <span onclick="openWA('I have a question for Aaspa Technologies.')">FAQs</span>
     </div>
@@ -1287,7 +1287,7 @@ function subscribeNewsletter() {
   if (!email || !email.includes('@')) { showToast('Please enter a valid email address'); return; }
   showToast('🎉 Subscribed! Check your inbox for deals.');
   document.getElementById('newsletterEmail').value = '';
-  window.location.href = `mailto:info@aaspatech.co.zw?subject=Newsletter Subscription&body=New subscriber: ${email}`;
+  window.location.href = `mailto:ma40spartacus@gmail.com?subject=Newsletter Subscription&body=New subscriber: ${email}`;
 }
 
 function sendContactEmail() {
@@ -1296,7 +1296,7 @@ function sendContactEmail() {
   const subject = document.getElementById('ctSubject').value.trim();
   const message = document.getElementById('ctMessage').value.trim();
   if (!name || !message) { showToast('Please fill in your name and message'); return; }
-  window.location.href = `mailto:info@aaspatech.co.zw?subject=${encodeURIComponent(subject || 'Message from ' + name)}&body=${encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\n' + message)}`;
+  window.location.href = `mailto:ma40spartacus@gmail.com?subject=${encodeURIComponent(subject || 'Message from ' + name)}&body=${encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\n' + message)}`;
   showToast('✅ Opening your email client to send the message!');
 }
 
